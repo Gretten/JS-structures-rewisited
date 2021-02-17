@@ -80,7 +80,9 @@ class LinkedList {
     }
 
     getByIndex(index) {
-        if(index < 0) return null;
+        if(index < 0 || index >= this.size) {
+            return console.error('invalid index')
+        }
 
         let i = 0;
         let current = this.head;
