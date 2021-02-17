@@ -8,8 +8,8 @@ class Node {
 
 class LinkedList {
     constructor() {
-        this.head = this.tail = null;
         this.size = 0;
+        this.head = this.tail = null;
     }
 
     append(data) {
@@ -64,7 +64,7 @@ class LinkedList {
                 this.tail = this.head = null;
             } else {
                 this.tail = this.tail.prev;
-                this.head.next = null;
+                this.tail.next = null;
             }
             return removedTail.value;
         }
@@ -72,9 +72,11 @@ class LinkedList {
     search(value) {
         let current = this.head;
         while(current) {
-            if(value === current.data) return true;
+            if(value === current.data) return current;
+
             current = current.next;
         }
+        return null;
     }
 
     getSize() {
@@ -82,28 +84,17 @@ class LinkedList {
     }
 
     printData() {
-
+        let current = this.head;
+        while(current) {
+            console.log(current.data);
+            current = current.next;
+        }
     }
-
-    addToIndex(data, index) {
-
-    }
-
-    deleteFromIndex(data, index) {
-
-    }
-
 }
 
 const ll = new LinkedList();
-
-ll.append(50);
-ll.append(180);
-ll.append(2780);
-ll.append(4452780);
-console.log(ll.getSize())
-
-console.log(ll.search(4452780))
-
-
+ll.append(20)
+ll.append(40)
+ll.append(60)
+ll.deleteTail()
 console.log(ll)
