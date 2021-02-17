@@ -12,7 +12,7 @@ class LinkedList {
         this.head = this.tail = null;
     }
 
-    append(data) {
+    setHead(data) {
         if(!this.tail) {
             this.tail = this.head = new Node(data)
         } else {
@@ -24,7 +24,7 @@ class LinkedList {
         this.size++;
     }
 
-    prepend(data) {
+    setTail(data) {
         if(!this.head) {
             this.head = this.tail = new Node(data)
         } else {
@@ -69,7 +69,8 @@ class LinkedList {
             return removedTail.value;
         }
     }
-    search(value) {
+    
+    getByValue(value) {
         let current = this.head;
         while(current) {
             if(value === current.data) return current;
