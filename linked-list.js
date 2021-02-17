@@ -12,7 +12,7 @@ class LinkedList {
         this.head = this.tail = null;
     }
 
-    setHead(data) {
+    append(data) {
         if(!this.tail) {
             this.tail = this.head = new Node(data)
         } else {
@@ -24,7 +24,7 @@ class LinkedList {
         this.size++;
     }
 
-    setTail(data) {
+    prepend(data) {
         if(!this.head) {
             this.head = this.tail = new Node(data)
         } else {
@@ -36,7 +36,7 @@ class LinkedList {
         this.size++;
     }
 
-    deleteHead() {
+    shift() {
         if(!this.head) {
             return;
         }
@@ -53,7 +53,7 @@ class LinkedList {
         }
     }
 
-    deleteTail() {
+    pop() {
         if(!this.tail) {
             return;
         }
@@ -69,8 +69,8 @@ class LinkedList {
             return removedTail.value;
         }
     }
-    
-    getByValue(value) {
+
+    has(value) {
         let current = this.head;
         while(current) {
             if(value === current.data) return current;
@@ -80,7 +80,7 @@ class LinkedList {
         return null;
     }
 
-    getByIndex(index) {
+    get(index) {
         if(index < 0 || index >= this.size) {
             return console.error('invalid index')
         }
@@ -95,7 +95,7 @@ class LinkedList {
         return current !== null ? current : null;
     }
 
-    deleteByIndex(index) {
+    remove(index) {
         if(index < 0 || index >= this.size) {
             return console.error('Invalid index');
         } else if (index === 0) {
@@ -110,17 +110,17 @@ class LinkedList {
         }
     }
 
-    getSize() {
+    size() {
         return this.size;
     }
 
-    printData() {
+    data() {
         let dataArray = [];
         let current = this.head;
         while(current) {
             dataArray.push(current.data)
             current = current.next;
         }
-        console.log(dataArray)
+        return dataArray;
     }
 }
