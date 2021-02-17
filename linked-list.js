@@ -99,11 +99,11 @@ class LinkedList {
         if(index < 0 || index >= this.size) {
             return console.error('Invalid index');
         } else if (index === 0) {
-            this.deleteHead()
+            this.shift()
         } else if(index === this.length - 1) {
-            return this.deleteTail();
+            return this.pop();
         } else {
-            const previous = this.getByIndex(index - 1);
+            const previous = this.get(index - 1);
             const current = previous.next;
             previous.next = current.next;
             this.size--;
