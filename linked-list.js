@@ -91,10 +91,3 @@ class LinkedList {
         }
     }
 }
-
-const ll = new LinkedList();
-ll.append(20)
-ll.append(40)
-ll.append(60)
-ll.deleteTail()
-console.log(ll)
