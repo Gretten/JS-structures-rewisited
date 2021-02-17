@@ -79,15 +79,45 @@ class LinkedList {
         return null;
     }
 
+    getByIndex(index) {
+        if(index < 0) return null;
+
+        let i = 0;
+        let current = this.head;
+
+        while(current !== null && i < index) {
+            current = current.next;
+            i++;
+        }
+        return current !== null ? current : null;
+    }
+
+    deleteByIndex(index) {
+        if(index < 0 || index >= this.size) {
+            return console.error('Invalid index');
+        } else if (index === 0) {
+            this.deleteHead()
+        } else if(index === this.length - 1) {
+            return this.deleteTail();
+        } else {
+            const previous = this.getByIndex(index - 1);
+            const current = previous.next;
+            previous.next = current.next;
+            this.size--;
+        }
+    }
+
     getSize() {
         return this.size;
     }
 
     printData() {
+        let dataArray = [];
         let current = this.head;
         while(current) {
-            console.log(current.data);
+            dataArray.push(current.data)
             current = current.next;
         }
+        console.log(dataArray)
     }
 }
